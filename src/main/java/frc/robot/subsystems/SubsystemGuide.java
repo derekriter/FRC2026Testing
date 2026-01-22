@@ -7,7 +7,7 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import edu.wpi.first.units.measure.AngularVelocity;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.constants.ExampleConstants;
+import frc.robot.constants.ConstantsGuide;
 
 // it is good practice to add "Subsystem" to the end of the name of your subsystem, so that we can easily tell what
 //     it is just by looking at the code
@@ -28,10 +28,10 @@ public class SubsystemGuide extends SubsystemBase {
         // initialize example motors
         // use values from constants file instead of hard-coding it. This makes it much easier to quickly reconfigure
         //     the robot in time-limited situations
-        exampleTalonFXMotor = new TalonFX(ExampleConstants.exampleTalonFXID);
+        exampleTalonFXMotor = new TalonFX(ConstantsGuide.exampleTalonFXID);
         // we use almost exclusively brushless motors, but if you are unsure, just ask
-        exampleSparkMaxMotor = new SparkMax(ExampleConstants.exampleSparkMaxID, MotorType.kBrushless);
-        exampleSparkFlexMotor = new SparkFlex(ExampleConstants.exampleSparkFlexID, MotorType.kBrushless);
+        exampleSparkMaxMotor = new SparkMax(ConstantsGuide.exampleSparkMaxID, MotorType.kBrushless);
+        exampleSparkFlexMotor = new SparkFlex(ConstantsGuide.exampleSparkFlexID, MotorType.kBrushless);
 
         // configure motors before we use them for anything
         configureTalonFXMotor();
