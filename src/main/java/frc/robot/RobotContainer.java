@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.ClimberSubsytem;
 import frc.robot.subsystems.ElevSubsytem;
 import frc.robot.subsystems.ShooterSubsytem;
-import frc.robot.subsystems.SwerveSubsystem;
 
 public class RobotContainer {
 
@@ -31,7 +30,6 @@ public class RobotContainer {
     public final ElevSubsytem elevSub;
     public final ShooterSubsytem shooterSub;
     public final ClimberSubsytem climbSub;
-    public final SwerveSubsystem swerveSub;
 
     private RobotContainer() {
         pdp = new PowerDistribution();
@@ -44,6 +42,5 @@ public class RobotContainer {
         elevSub = new ElevSubsytem();
         shooterSub = new ShooterSubsytem();
         climbSub = new ClimberSubsytem();
-        swerveSub = new SwerveSubsystem(true); // dont handle RuntimeException, just let program crash
     }
 }

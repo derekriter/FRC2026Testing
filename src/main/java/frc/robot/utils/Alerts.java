@@ -34,9 +34,7 @@ public class Alerts {
             climbLeverOverheating,
             climbClampOverheating,
             climbLeverFaults,
-            climbClampFaults,
-            swerveLoadConfig,
-            swerveInitPathPlanner;
+            climbClampFaults;
 
     static {
         driver1Missing = new Alert("Driver 1 controller is not plugged in to port 0", AlertType.kWarning);
@@ -178,12 +176,6 @@ public class Alerts {
                         ClimberConstants.Clamp.motorID),
                 AlertType.kWarning);
         climbClampFaults.set(false);
-
-        swerveLoadConfig = new Alert("Swerve subsytem faile to load config file", AlertType.kError);
-        swerveLoadConfig.set(false);
-
-        swerveInitPathPlanner = new Alert("Swerve subsystem failed to initialize PathPlanner", AlertType.kError);
-        swerveInitPathPlanner.set(false);
     }
 
     private Alerts() {}
