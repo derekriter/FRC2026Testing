@@ -1,0 +1,49 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
+package frc.robot;
+
+import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.subsystems.ClimberSubsytem;
+import frc.robot.subsystems.ElevSubsytem;
+import frc.robot.subsystems.ShooterSubsytem;
+import frc.robot.subsystems.SwerveSubsystem;
+
+public class RobotContainer {
+
+    // singleton design pattern
+    private static RobotContainer instance = null;
+
+    public static synchronized RobotContainer getInstance() {
+        if (instance == null) instance = new RobotContainer();
+
+        return instance;
+    }
+
+    public final PowerDistribution pdp;
+
+    public final CommandXboxController commandDriver1, commandDriver2;
+    public final XboxController hidDriver1, hidDriver2;
+
+    public final ElevSubsytem elevSub;
+    public final ShooterSubsytem shooterSub;
+    public final ClimberSubsytem climbSub;
+    public final SwerveSubsystem swerveSub;
+
+    private RobotContainer() {
+        pdp = new PowerDistribution();
+
+        commandDriver1 = new CommandXboxController(0);
+        hidDriver1 = commandDriver1.getHID();
+        commandDriver2 = new CommandXboxController(1);
+        hidDriver2 = commandDriver2.getHID();
+
+        elevSub = new ElevSubsytem();
+        shooterSub = new ShooterSubsytem();
+        climbSub = new ClimberSubsytem();
+        swerveSub = new SwerveSubsystem(true); // dont handle RuntimeException, just let program crash
+    }
+}
